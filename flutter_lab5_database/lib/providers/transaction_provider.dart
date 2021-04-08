@@ -21,6 +21,7 @@ class TransactionProvider with ChangeNotifier {
   void addTransaction(Transactions statement) async {
     // var db = await TransactionDB(dbName: "transaction.db").openDatabase();
     // print(db);
+    // แทรกข้อมูลไปบนสุดที่ ตำแหน่ง 0
     transaction.insert(0, statement);
     notifyListeners();
   }

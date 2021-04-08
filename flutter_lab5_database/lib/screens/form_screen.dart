@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lab5_database/models/Transactions.dart';
+import 'package:flutter_lab5_database/providers/transaction_provider.dart';
+import 'package:provider/provider.dart';
 
 class FormScreen extends StatelessWidget {
   final formkey = GlobalKey<FormState>();
@@ -92,17 +95,31 @@ class FormScreen extends StatelessWidget {
                       var fname = fnameContrller.text;
                       var lname = lnameContrller.text;
                       var address = addressContrller.text;
-                      var tel = telContrller;
+                      var tel = telContrller.text;
                       var email = emailContrller.text;
                       var password = passwordContrller.text;
 
-                      print(fname);
-                      print(lname);
-                      print(address);
-                      print(tel);
-                      print(email);
-                      print(password);
+                      // print(fname);
+                      // print(lname);
+                      // print(address);
+                      // print(tel);
+                      // print(email);
+                      // print(password);
 
+                      // เตรียมข้อมูลก่อนส่งให้ provider
+                      Transactions statement = Transactions(
+                        fname: fname,
+                        lname: lname,
+                        address: address,
+                        tel: tel,
+                        email: email,
+                        password: password,
+                      ); // obj
+
+                      // เรียก Provider
+                      var provider = Provider.of<TransactionProvider>(context,
+                          listen: false);
+                      provider.addTransaction(statement);
                       Navigator.pop(context);
                     }
                   },
