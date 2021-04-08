@@ -43,6 +43,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 })
           ],
         ),
-        body: Container());
+        body: ListView.builder(
+            itemCount: 2,
+            itemBuilder: (context, int index) {
+              return Card(
+                elevation: 5,
+                margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 30,
+                    child: FittedBox(
+                      child: Text("500"),
+                    ),
+                  ),
+                  title: Text("ข้อมูลผู้ใช้"),
+                  subtitle: Text(
+                      "ชื่อ \n นามสกุล \n ที่อยู่ \n เบอร์โทร \n ชื่อผู้ใช้ หรือ E-mail"),
+                ),
+              );
+            }));
   }
 }
