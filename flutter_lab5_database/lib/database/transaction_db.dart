@@ -71,5 +71,6 @@ class TransactionDB {
     var db = await this.openDatabase();
     var store = intMapStoreFactory.store("expense");
     store.drop(db);
+    db.close();
   }
 }
