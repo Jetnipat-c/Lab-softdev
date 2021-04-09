@@ -85,10 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         leading: CircleAvatar(
                           radius: 30,
                           child: FittedBox(
-                            child: Icon(Icons.add),
+                            child: Icon(Icons.supervised_user_circle),
                           ),
                         ),
-                        title: Text("ข้อมูลผู้ใช้"),
+                        title: Text("ยินดีต้อนรับ"),
                         subtitle: Text(
                             "ชื่อ ${data.fname} \n นามสกุล ${data.lname} \n ที่อยู่ ${data.address} \n เบอร์โทร ${data.tel} \n ชื่อผู้ใช้ หรือ E-mail ${data.email}"),
                       ),

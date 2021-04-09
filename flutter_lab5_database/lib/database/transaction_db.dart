@@ -64,6 +64,9 @@ class TransactionDB {
         password: record["password"],
       ));
     }
+    //transactionList.remove(db);
     return transactionList;
   }
+
+  
 }

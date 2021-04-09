@@ -99,13 +99,6 @@ class FormScreen extends StatelessWidget {
                       var email = emailContrller.text;
                       var password = passwordContrller.text;
 
-                      // print(fname);
-                      // print(lname);
-                      // print(address);
-                      // print(tel);
-                      // print(email);
-                      // print(password);
-
                       // เตรียมข้อมูลก่อนส่งให้ provider
                       Transactions statement = Transactions(
                         fname: fname,
