@@ -23,10 +23,17 @@ class TransactionProvider with ChangeNotifier {
     await db.InsertData(statement);
 
     // ดึงข้อมูล
-    transactions = await db.loadAllData();
+    //transactions = await db.loadAllData();
 
     // แทรกข้อมูลไปบนสุดที่ ตำแหน่ง 0
     transactions.insert(0, statement);
+    notifyListeners();
+  }
+
+  void deleteData() async {
+    var db = TransactionDB(dbName: "transaction.db");
+    db.deleateData();
+    transactions.clear();
     notifyListeners();
   }
 }

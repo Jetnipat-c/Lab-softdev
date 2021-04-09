@@ -64,9 +64,12 @@ class TransactionDB {
         password: record["password"],
       ));
     }
-    //transactionList.remove(db);
     return transactionList;
   }
 
-  
+  deleateData() async {
+    var db = await this.openDatabase();
+    var store = intMapStoreFactory.store("expense");
+    store.drop(db);
+  }
 }

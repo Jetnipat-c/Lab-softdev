@@ -117,6 +117,18 @@ class FormScreen extends StatelessWidget {
                     }
                   },
                 ),
+                FlatButton(
+                  child: Text("ลบข้อมูล"),
+                  color: Colors.purple,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    // เรียก Provider
+                    var provider = Provider.of<TransactionProvider>(context,
+                        listen: false);
+                    provider.deleteData();
+                    Navigator.pop(context);
+                  },
+                ),
               ],
             ),
           ),
