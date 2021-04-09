@@ -19,12 +19,12 @@ class FormScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text("แบบฟอร์มสมัครสมาชิก"),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.only(top: 0, right: 5, left: 5),
           child: Form(
             key: formkey,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TextFormField(
                   decoration: new InputDecoration(labelText: "ชื่อ"),
@@ -123,7 +123,7 @@ class FormScreen extends StatelessWidget {
                       Navigator.pop(context);
                     }
                   },
-                )
+                ),
               ],
             ),
           ),

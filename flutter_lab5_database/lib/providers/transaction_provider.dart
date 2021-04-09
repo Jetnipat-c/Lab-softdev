@@ -4,25 +4,29 @@ import 'package:flutter_lab5_database/models/Transactions.dart';
 import 'package:sembast/sembast.dart';
 
 class TransactionProvider with ChangeNotifier {
-  List<Transactions> transaction = [
-    Transactions(
-        fname: "เจตนิพัทธ์",
-        lname: "ตันเกียรติพงัน",
-        address: "119/95 Phuket",
-        tel: "098-9999999",
-        email: "s6035512021@phuket.psu.ac.th",
-        password: "123456")
-  ];
+  List<Transactions> transactions = [];
 
   List<Transactions> getTransaction() {
-    return transaction;
+    return transactions;
+  }
+
+  void initData() async {
+    var db = TransactionDB(dbName: "transaction.db");
+    transactions = await db.loadAllData();
+    notifyListeners();
   }
 
   void addTransaction(Transactions statement) async {
-    // var db = await TransactionDB(dbName: "transaction.db").openDatabase();
-    // print(db);
+    var db = TransactionDB(dbName: "transaction.db");
+
+    // บันทึกข้อมูล
+    await db.InsertData(statement);
+
+    // ดึงข้อมูล
+    transactions = await db.loadAllData();
+
     // แทรกข้อมูลไปบนสุดที่ ตำแหน่ง 0
-    transaction.insert(0, statement);
+    transactions.insert(0, statement);
     notifyListeners();
   }
 }

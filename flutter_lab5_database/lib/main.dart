@@ -43,6 +43,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  // ดึงข้อมูลก่อน render
+  void initState() {
+    super.initState();
+    Provider.of<TransactionProvider>(context, listen: false).initData();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -59,27 +65,36 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Consumer(
           builder: (contex, TransactionProvider provider, Widget child) {
-            return ListView.builder(
-                itemCount: provider.transaction.length,
-                itemBuilder: (context, int index) {
-                  Transactions data = provider.transaction[index];
-                  return Card(
-                    elevation: 5,
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        radius: 30,
-                        child: FittedBox(
-                          child: Text("500"),
+            var count = provider.transactions.length;
+            if (count <= 0) {
+              return Center(
+                  child: Text(
+                "ไม่พบข้อมูล",
+                style: TextStyle(fontSize: 35),
+              ));
+            } else {
+              return ListView.builder(
+                  itemCount: count,
+                  itemBuilder: (context, int index) {
+                    Transactions data = provider.transactions[index];
+                    return Card(
+                      elevation: 5,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 20),
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          radius: 30,
+                          child: FittedBox(
+                            child: Icon(Icons.add),
+                          ),
                         ),
+                        title: Text("ข้อมูลผู้ใช้"),
+                        subtitle: Text(
+                            "ชื่อ ${data.fname} \n นามสกุล ${data.lname} \n ที่อยู่ ${data.address} \n เบอร์โทร ${data.tel} \n ชื่อผู้ใช้ หรือ E-mail ${data.email}"),
                       ),
-                      title: Text("ข้อมูลผู้ใช้"),
-                      subtitle: Text(
-                          "ชื่อ ${data.fname} \n นามสกุล ${data.lname} \n ที่อยู่ ${data.address} \n เบอร์โทร ${data.tel} \n ชื่อผู้ใช้ หรือ E-mail ${data.email}"),
-                    ),
-                  );
-                });
+                    );
+                  });
+            }
           },
         ));
   }
