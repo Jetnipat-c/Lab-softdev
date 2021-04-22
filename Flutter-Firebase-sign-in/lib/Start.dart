@@ -54,29 +54,21 @@ class _StartState extends State<Start> {
             Container(
               height: 400,
               child: Image(
-                image: AssetImage("images/start.jpg"),
+                image: AssetImage("images/flutter.jpg"),
                 fit: BoxFit.contain,
               ),
             ),
             SizedBox(height: 20),
             RichText(
                 text: TextSpan(
-                    text: 'Welcome to ',
+                    text: 'Flutter x Firebase',
                     style: TextStyle(
-                        fontSize: 25.0,
+                        fontSize: 30.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                    children: <TextSpan>[
-                  TextSpan(
-                      text: 'X Groceries',
-                      style: TextStyle(
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.orange))
-                ])),
+                        color: Colors.orange))),
             SizedBox(height: 10.0),
             Text(
-              'Fresh Groceries Delivered at your Doorstep',
+              'Assignment miniproject',
               style: TextStyle(color: Colors.black),
             ),
             SizedBox(height: 30.0),
@@ -97,7 +89,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orange),
+                    color: Colors.blue),
                 SizedBox(width: 20.0),
                 RaisedButton(
                     padding: EdgeInsets.only(left: 30, right: 30),
@@ -113,12 +105,9 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orange),
+                    color: Colors.blue),
               ],
             ),
-            SizedBox(height: 20.0),
-            SignInButton(Buttons.Google,
-                text: "Sign up with Google", onPressed: googleSignIn)
           ],
         ),
       ),

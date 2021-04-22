@@ -66,10 +66,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
+                  padding: EdgeInsets.all(50),
                   child: Text(
-                    "Hello ${user.displayName} you are Logged in as ${user.email}",
+                    "สวัสดี ${user.displayName} คุณได้เข้าสู่ระบบด้วย ${user.email}",
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 RaisedButton(
@@ -80,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold)),
-                  color: Colors.orange,
+                  color: Colors.blue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),

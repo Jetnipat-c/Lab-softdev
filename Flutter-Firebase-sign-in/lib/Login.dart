@@ -75,7 +75,7 @@ class _LoginState extends State<Login> {
             Container(
               height: 400,
               child: Image(
-                image: AssetImage("images/login.jpg"),
+                image: AssetImage("images/firebase.png"),
                 fit: BoxFit.contain,
               ),
             ),
@@ -116,7 +116,7 @@ class _LoginState extends State<Login> {
                               color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold)),
-                      color: Colors.orange,
+                      color: Colors.blue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),

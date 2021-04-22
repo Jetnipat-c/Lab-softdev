@@ -53,6 +53,9 @@ flutter:
     - images/start.jpg
     - images/login.jpg
     - images/welcome.jpg
+    - images/flutter.jpg
+    - images/firebase.png
+    - images/firebase-authentication-vert-light.png
 
 
   #   - images/a_dot_ham.jpeg
